@@ -1,0 +1,102 @@
+N5KWD Ham & Electronics Toolkit  --  TI-BASIC source listing (program NKWD)
+Runs on every TI-84 Plus / CE / CE Python / Evo (and TI-83 Plus for the math).
+Free & open source (MIT).  Online versions: n5kwd.com/tools
+
+TI-BASIC has no comment syntax, so the explanation lives beside the code on
+the website.  Type this in on-calc, or send the .8xp built from this listing.
+--------------------------------------------------------------------------
+
+ClrHome
+Lbl 0
+Menu("N5KWD TOOLKIT","OHMS LAW",1,"RESISTORS",2,"REACTANCE",3,"LC RESONANCE",4,"ANTENNA",5,"MORE...",6)
+
+Lbl 6
+Menu("MORE TOOLS","COAX LOSS",7,"SWR/RTN LOSS",8,"DBM/WATTS",9,"BACK",0)
+
+Lbl 1
+ClrHome
+Disp "ENTER 0=UNKNOWN"
+Prompt V,I,R,P
+If V≠0 and I≠0:Then:V/I→R:V*I→P:End
+If V≠0 and R≠0:Then:V/R→I:V²/R→P:End
+If V≠0 and P≠0:Then:P/V→I:V²/P→R:End
+If I≠0 and R≠0:Then:I*R→V:I²*R→P:End
+If I≠0 and P≠0:Then:P/I→V:P/I²→R:End
+If R≠0 and P≠0:Then:√(P*R)→V:√(P/R)→I:End
+ClrHome
+Disp "V=",V,"I=",I,"R=",R,"P=",P
+Pause
+Goto 0
+
+Lbl 2
+ClrHome
+Input "HOW MANY R? ",N
+0→S:0→G
+For(J,1,N)
+Input "R= ",R
+S+R→S
+G+1/R→G
+End
+Menu("CONNECTION","SERIES",21,"PARALLEL",22)
+Lbl 21:Disp "SERIES OHM=",S:Pause:Goto 0
+Lbl 22:Disp "PARALLEL OHM=",1/G:Pause:Goto 0
+
+Lbl 3
+ClrHome
+Input "FREQ MHZ? ",F
+2π*F*1000000→W
+Input "CAP pF (0=skip)? ",C
+Input "IND uH (0=skip)? ",L
+If C≠0:Disp "XC OHM=",1/(W*C*10^(-12))
+If L≠0:Disp "XL OHM=",W*L*10^(-6)
+Pause
+Goto 0
+
+Lbl 4
+ClrHome
+Input "IND uH? ",L
+Input "CAP pF? ",C
+1/(2π√(L*10^(-6)*C*10^(-12)))→F
+Disp "F MHZ=",F/1000000
+Pause
+Goto 0
+
+Lbl 5
+ClrHome
+Input "FREQ MHZ? ",F
+Disp "WAVELEN FT=",984/F
+Disp "HALF DIPOLE FT=",468/F
+Disp "QTR VERT FT=",234/F
+Disp "5/8 VERT FT=",585/F
+Pause
+Goto 0
+
+Lbl 7
+ClrHome
+Input "DB PER 100FT? ",D
+Input "LENGTH FT? ",E
+D*E/100→Y
+Disp "LOSS DB=",Y
+Input "PWR IN W (0=skip)? ",P
+If P≠0:Disp "PWR OUT W=",P*10^(-Y/10)
+Pause
+Goto 0
+
+Lbl 8
+ClrHome
+Input "SWR? ",S
+(S-1)/(S+1)→G
+Disp "REFL COEF=",G
+If G≠0:Disp "RTN LOSS DB=",-20log(G)
+Disp "PWR REFL %=",G²*100
+Pause
+Goto 0
+
+Lbl 9
+ClrHome
+Input "DBM? ",D
+10^((D-30)/10)→P
+Disp "WATTS=",P
+Disp "UV 50OHM=",√(P*50)*1000000
+Pause
+Goto 0
