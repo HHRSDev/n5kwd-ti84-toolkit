@@ -10,7 +10,7 @@
 #  Each tool echoes your inputs, shows the formula, then the answer.
 # =====================================================================
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 import math
 

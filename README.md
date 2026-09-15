@@ -8,7 +8,7 @@ TI-84 that lives in a lot of shacks and nearly every US classroom. It ports the 
   as a *learn-Python-by-real-uses* example.
 - **`NKWD.8xp.txt`** — TI-BASIC source listing (runs on **every** TI-84 Plus, and TI-83 Plus for the math).
 
-> **Version 1.0.0** ([changelog](CHANGELOG.md)) · **License:** MIT · **Guide:** how to
+> **Version 1.0.1** ([changelog](CHANGELOG.md)) · **License:** MIT · **Guide:** how to
 > load & use it, and the same tools online, at **[n5kwd.com/tools](https://n5kwd.com/tools)**
 
 Each tool echoes your inputs, shows the formula, then the result &mdash; so it doubles as a

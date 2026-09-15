@@ -8,7 +8,7 @@ the website.  Type this in on-calc, or send the .8xp built from this listing.
 
 ClrHome
 Lbl 0
-Menu("N5KWD v1.0.0","OHMS LAW",1,"RESISTORS",2,"REACTANCE",3,"LC RESONANCE",4,"ANTENNA",5,"MORE...",6)
+Menu("N5KWD v1.0.1","OHMS LAW",1,"RESISTORS",2,"REACTANCE",3,"LC RESONANCE",4,"ANTENNA",5,"MORE...",6)
 
 Lbl 6
 Menu("MORE TOOLS","COAX LOSS",7,"SWR/RTN LOSS",8,"DBM/WATTS",9,"BACK",0)
