@@ -195,6 +195,9 @@ def main():
             return
         if choice.isdigit() and 1 <= int(choice) <= len(TOOLS):
             TOOLS[int(choice) - 1][1]()
+            # Pause so the answer stays on the calculator's small screen until
+            # you're ready - without this, redrawing the menu scrolls it away.
+            input("\n[enter for menu] ")
         else:
             print("  Pick a number from the menu.")
 
